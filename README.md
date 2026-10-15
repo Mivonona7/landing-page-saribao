@@ -36,6 +36,8 @@ Le compteur partagé s’appuie sur Upstash Redis. Créez une base Redis compati
 
 Ajoutez ces variables à chaque environnement Vercel utilisé (Preview et Production), puis redéployez. En local, vous pouvez les définir dans un fichier `.env.local` non versionné. Sans identifiants valides, le compteur indique qu’il est indisponible et le lien direct vers l’APK continue de fonctionner.
 
+Si vous connectez Upstash depuis la section Storage de Vercel, le projet utilise automatiquement les variables `KV_REST_API_URL` et `KV_REST_API_TOKEN` créées par l’intégration.
+
 Le total compte les demandes de téléchargement lancées depuis les boutons du site ; il ne confirme ni la fin du transfert du fichier ni l’installation de l’application.
 
 ## Ressources de l’application
