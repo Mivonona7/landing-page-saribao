@@ -1221,6 +1221,19 @@ img {
   background: var(--brand-dark);
 }
 
+.download-count-message,
+.download-count {
+  display: block;
+  margin-top: 12px;
+  color: #777482;
+  font-size: 10px;
+}
+
+.download-count strong {
+  color: var(--brand);
+  font-size: 13px;
+}
+
 .download-unavailable {
   display: inline-flex;
   margin-top: 22px !important;
@@ -2197,6 +2210,11 @@ html[data-theme="dark"] .download-unavailable {
   border-color: var(--line);
   background: #292734;
   color: #d4d0ed !important;
+}
+
+html[data-theme="dark"] .download-count-message,
+html[data-theme="dark"] .download-count {
+  color: #aaa7b9;
 }
 
 html[data-theme="dark"] .download-platform,

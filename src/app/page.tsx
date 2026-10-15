@@ -21,6 +21,7 @@ import {
 import { Brand } from "@/components/Brand";
 import { CurrentYear } from "@/components/CurrentYear";
 import { DemoGallery } from "@/components/DemoGallery";
+import { DownloadCount, DownloadLink } from "@/components/DownloadTracker";
 import { Navbar } from "@/components/Navbar";
 import { SectionHeading } from "@/components/SectionHeading";
 import { siteConfig } from "@/config/site";
@@ -134,14 +135,17 @@ export default function Home() {
                 connexion Internet.
               </p>
               <div className="hero-actions">
-                <a
-                  className="button button-primary"
-                  download={apkAvailable ? "saribao.apk" : undefined}
-                  href={apkAvailable ? siteConfig.apk.href : "#telechargement"}
-                >
-                  {apkAvailable ? "Télécharger pour Android" : "Voir le téléchargement"}
-                  <ArrowDownToLine aria-hidden="true" size={17} />
-                </a>
+                {apkAvailable ? (
+                  <DownloadLink className="button button-primary" href={siteConfig.apk.href}>
+                    Télécharger pour Android
+                    <ArrowDownToLine aria-hidden="true" size={17} />
+                  </DownloadLink>
+                ) : (
+                  <a className="button button-primary" href="#telechargement">
+                    Voir le téléchargement
+                    <ArrowDownToLine aria-hidden="true" size={17} />
+                  </a>
+                )}
                 <a className="button button-secondary" href="#demonstration">
                   Découvrir la démonstration <ArrowRight aria-hidden="true" size={16} />
                 </a>
@@ -331,19 +335,16 @@ export default function Home() {
                   : "Le fichier d’installation n’est pas encore disponible. Revenez bientôt pour télécharger l’application Android."}
               </p>
               {apkAvailable ? (
-                <a
-                  className="button button-download"
-                  download="saribao.apk"
-                  href={siteConfig.apk.href}
-                >
+                <DownloadLink className="button button-download" href={siteConfig.apk.href}>
                   <ArrowDownToLine aria-hidden="true" size={18} />
                   Télécharger l’APK Android
-                </a>
+                </DownloadLink>
               ) : (
                 <p className="download-unavailable" role="status">
                   Application bientôt disponible au téléchargement
                 </p>
               )}
+              {apkAvailable ? <DownloadCount /> : null}
               <span className="download-platform">
                 <Smartphone aria-hidden="true" size={15} />
                 Android · Installation manuelle de l’APK
