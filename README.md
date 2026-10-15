@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Saribao — landing page
 
-## Getting Started
+Landing page française de l’application Android Saribao, construite avec Next.js App Router, TypeScript, Tailwind CSS et Lucide React.
 
-First, run the development server:
+Le thème clair/sombre suit les préférences de l’appareil par défaut. Les visiteurs peuvent le changer depuis la barre de navigation ; leur choix est mémorisé dans le navigateur.
+
+## Démarrer en local
+
+Depuis ce dossier :
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrez ensuite [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Vérifications et production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+npm run start
+```
 
-## Learn More
+Le projet peut être déployé sur Vercel ou sur un hébergeur compatible avec Next.js. Aucun backend ni service externe n’est nécessaire pour afficher la page. Aucun domaine n’étant encore confirmé, l’URL canonique et le sitemap ne sont pas renseignés.
 
-To learn more about Next.js, take a look at the following resources:
+Lorsque le domaine public est confirmé, configurez `NEXT_PUBLIC_SITE_URL` avec son URL complète (par exemple `https://saribao.mg`) afin que les aperçus de partage utilisent l’adresse publique. Sur Vercel, `VERCEL_URL` est également pris en charge.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Ressources de l’application
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Les captures réelles utilisées par la galerie se trouvent dans `public/images/`.
+- Le fichier Android actuellement fourni est `public/saribao.apk`. Pour le remplacer, gardez ce chemin ou modifiez `apk.href` et `apk.publicFile` dans `src/config/site.ts`.
+- Le logo utilisé est `public/logos/charbon.png`.
+- La galerie, les liens de navigation et les informations de téléchargement sont centralisés dans `src/config/site.ts`.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+La page de confidentialité est un emplacement à compléter et à faire vérifier par l’éditeur selon le fonctionnement réel de l’application ; elle ne constitue pas encore une politique de confidentialité.
